@@ -10,7 +10,9 @@ var gulp = require('gulp'),
 	minifycss = require('gulp-minify-css'),
 	sourcemaps = require('gulp-sourcemaps'),
 	minifycss = require('gulp-minify-css'),
-	imagemin = require('gulp-imagemin');
+	imagemin = require('gulp-imagemin'),
+	autoprefixer = require('gulp-autoprefixer');	// Parses CSS files and adds vendor prefixes to CSS rules
+
 
 
 // LESS TASK
@@ -19,6 +21,7 @@ gulp.task('less', function() {
 	.pipe(plumber())
 	.pipe(sourcemaps.init())
 	.pipe(less())
+	.pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9', 'opera 12.1', 'ios 6', 'android 4'))
 	.pipe(minifycss())
 	.pipe(rename('styles.min.css'))
 	.pipe(gulp.dest('dist/css/'))
@@ -47,7 +50,7 @@ gulp.task('images', function() {
 	.pipe(plumber())
 	.pipe(imagemin())
 	.pipe(gulp.dest('dist/images/'))
-	//.pipe(watch('app/img/*', 'images'))  // APPERANTLY THIS CONFLICTS WITH PLUMBER!
+	.pipe(watch('app/img/*', 'images'))
 	.pipe(notify({ message: 'Images task complete' }));
 });
 
