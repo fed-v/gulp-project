@@ -1,3 +1,6 @@
+Gulp Project Template
+============
+
 ### NOTE
 
 
