@@ -1,8 +1,8 @@
 Gulp Project Template
 ============
 
-This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) project. 
-It aims to provide some common tasks to a web app development within a organized structure.
+This is an initial setup for a simple [gulp](http://gulpjs.com/) project. 
+It aims to provide some common tasks and workflows for web app development using the Gulp streaming build system. Development environment ("app") and production environment ("dist") are provided along with essential files to get started on the right path. 
 
 
 ### Features
