@@ -1,17 +1,15 @@
 Gulp Project Template
 ============
 
-### NOTE
-
-
 This is a template or a initial setup for a simple [gulp](http://gulpjs.com/) project. 
 It aims to provide some common tasks to a web app development within a organized structure.
+
 
 ### Features
 
 - CSS Autoprefixing
 - Automatically minify css files
-- Automatically compile Less
+- Automatically compile Less (with source maps!)
 - Automatically lint scripts via jsHint
 - Automatically uglify script files
 - Automatically optimize image files (.jpg, .png, .gif)
@@ -45,6 +43,16 @@ A sample project strucutre would be:
 |  |-- index.html
 |-- node_modules
 ```
+
+
+### Install npm dependencies
+
+```
+npm install
+```
+
+This runs through all dependencies listed in `package.json` and downloads them to a `node_modules` folder in your project directory.
+
 
 ### Copyright
 
