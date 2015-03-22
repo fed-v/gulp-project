@@ -1,18 +1,36 @@
+
 // Load Node Modules/Plugins
 var gulp = require('gulp'),
-	notify = require( 'gulp-notify' ),		// SENDS NOTIFICATION THROUGH COMMAND LINE. AWESOME!
-	plumber = require('gulp-plumber'),		// Prevent pipe breaking caused by errors from gulp plugins
-	watch = require('gulp-watch'),
-	jshint = require('gulp-jshint'),
-	uglify = require('gulp-uglify'),
-	rename = require('gulp-rename'),
-	less = require('gulp-less'),
-	minifycss = require('gulp-minify-css'),
-	sourcemaps = require('gulp-sourcemaps'),
-	minifycss = require('gulp-minify-css'),
-	imagemin = require('gulp-imagemin'),
-	autoprefixer = require('gulp-autoprefixer');	// Parses CSS files and adds vendor prefixes to CSS rules
+    notify = require( 'gulp-notify' ),			// SENDS NOTIFICATION THROUGH COMMAND LINE. AWESOME!
+    plumber = require('gulp-plumber'),			// Prevent pipe breaking caused by errors from gulp plugins	
+    watch = require('gulp-watch'),	
+    jshint = require('gulp-jshint'),
+    uglify = require('gulp-uglify'),
+    rename = require('gulp-rename'),
+    less = require('gulp-less'),
+    minifycss = require('gulp-minify-css'),
+    sourcemaps = require('gulp-sourcemaps'),
+    minifycss = require('gulp-minify-css'),
+    imagemin = require('gulp-imagemin'),
+    autoprefixer = require('gulp-autoprefixer'),	// Parses CSS files and adds vendor prefixes to CSS rules
+    browserSync = require('browser-sync');
+	
+	
 
+// SERVER TASK
+
+var reload = browserSync.reload;
+
+gulp.task('serve', function() {
+  browserSync({
+    server: {
+      baseDir: 'app'
+    }
+  });
+
+  gulp.watch(['*.html', 'app/less/*.less', 'app/js/*.js'], {cwd: 'app'}, reload);
+  
+});
 
 
 // LESS TASK
@@ -56,4 +74,4 @@ gulp.task('images', function() {
 
 
 // DEFAULT TASK
-gulp.task('default', ['less', 'scripts', 'images'], function() {});
+gulp.task('default', ['less', 'scripts', 'images', 'serve'], function() {});
